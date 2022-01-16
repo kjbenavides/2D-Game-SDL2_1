@@ -1,0 +1,83 @@
+# depslib dependency file v1.0
+1427990871 source:c:\users\kelvin\desktop\codeblocks projects\2d game\globals.cpp
+	<SDL.h>
+
+1427635051 source:c:\users\kelvin\desktop\codeblocks projects\2d game\gui.cpp
+
+1428189679 source:c:\users\kelvin\desktop\codeblocks projects\2d game\main.cpp
+	<iostream>
+	<vector>
+	<SDL.h>
+	<SDL_image.h>
+	"primary.h"
+
+1428189564 source:c:\users\kelvin\desktop\codeblocks projects\2d game\player.cpp
+	<SDL.h>
+	<iostream>
+	"globals.h"
+	"tiles.h"
+	"objects.h"
+	"collision.h"
+
+1428187872 source:c:\users\kelvin\desktop\codeblocks projects\2d game\tiles.cpp
+	<iostream>
+	<fstream>
+	<SDL.h>
+	"globals.h"
+	"player.h"
+
+1427715447 source:c:\users\kelvin\desktop\codeblocks projects\2d game\colors.cpp
+	<SDL.h>
+
+1427991543 c:\users\kelvin\desktop\codeblocks projects\2d game\primary.h
+	"collision.h"
+	"colors.h"
+	"control.h"
+	"globals.h"
+	"gui.h"
+	"player.h"
+	"tiles.h"
+	"objects.h"
+
+1427714952 c:\users\kelvin\desktop\codeblocks projects\2d game\colors.h
+
+1427990879 c:\users\kelvin\desktop\codeblocks projects\2d game\globals.h
+
+1427635064 c:\users\kelvin\desktop\codeblocks projects\2d game\gui.h
+
+1428189578 c:\users\kelvin\desktop\codeblocks projects\2d game\player.h
+
+1427995618 c:\users\kelvin\desktop\codeblocks projects\2d game\tiles.h
+
+1427902766 source:c:\users\kelvin\desktop\codeblocks projects\2d game\control.cpp
+	<iostream>
+	<SDL.h>
+	<fstream>
+	<string>
+	<math.h>
+	"globals.h"
+	"player.h"
+	"tiles.h"
+
+1427746885 c:\users\kelvin\desktop\codeblocks projects\2d game\control.h
+
+1428009587 source:c:\users\kelvin\desktop\codeblocks projects\2d game\collision.cpp
+	<iostream>
+	<SDL.h>
+	"globals.h"
+	"player.h"
+	"tiles.h"
+	"objects.h"
+
+1427757152 c:\users\kelvin\desktop\codeblocks projects\2d game\collision.h
+
+1428190295 source:c:\users\kelvin\desktop\codeblocks projects\2d game\objects.cpp
+	<iostream>
+	<fstream>
+	<SDL.h>
+	"globals.h"
+	"tiles.h"
+	"player.h"
+
+1427991367 c:\users\kelvin\desktop\codeblocks projects\2d game\objects.h
+
