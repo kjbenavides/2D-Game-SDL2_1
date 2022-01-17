@@ -34,6 +34,7 @@ void pollControls()
         }
         if (_e.button.button == SDL_BUTTON_MIDDLE) // Middle Mouse
         {
+			/*
             _middleClick = true;
 			// Coordinates to calculate the angle between the player and the mouse
             int x1 = playerX + tile[0].rect.x; int y1 = playerY + tile[0].rect.y;
@@ -58,7 +59,7 @@ void pollControls()
             _projectileLocY = y2;
 
             _shoot = true;
-
+			*/
             cout << "MC Down \n";
         }
     }
