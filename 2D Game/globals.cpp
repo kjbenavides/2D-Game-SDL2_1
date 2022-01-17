@@ -23,12 +23,3 @@ SDL_Event _e;
 
 SDL_Rect _camera = {0, 0, 640, 480};
 int _cameraX; int _cameraY; int _cameraNewX; int _cameraNewY; int _cameraVelX; int _cameraVelY;
-
-SDL_Rect _Projectile = {0, 0, 4, 4};
-int _projectileVelX = 0;
-int _projectileVelY = 0;
-int _projectileSpeed = 2;
-int _projectileFrames = 10;
-int _projectileLocX = 0;
-int _projectileLocY = 0;
-bool _shoot = false;
