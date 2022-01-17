@@ -5,7 +5,6 @@
 #include "colors.h"
 #include "control.h"
 #include "globals.h"
-#include "gui.h"
 #include "player.h"
 #include "tiles.h"
 #include "objects.h"
