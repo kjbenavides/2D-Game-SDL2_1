@@ -6,17 +6,16 @@
 
 using namespace std;
 
+// Variables for the tileType
 int Wall = 0;
 int Floor = 1;
 int Box = 1;
 
 class Tile
 {
-
 public:
     Tile();
     Tile(int, int, int, int, int);
-    SDL_Rect rect;
     void setTile(int, int, int, int, int);
     void setTileType(int);
     void getCoords();
@@ -26,6 +25,7 @@ public:
     int getInitialY();
     void setInitialY(int);
     void setInitialX(int);
+    SDL_Rect rect;
     int tileType;
 private:
     int initialX;
@@ -43,12 +43,14 @@ Tile::Tile()
 
 Tile::Tile(int x, int y, int w, int h, int tileType)
 {
+	// Set tile properties
     rect.x = x; rect.y = y; rect.w = w; rect.h = h;
     Tile::x = x; Tile::y = y; Tile::w = w; Tile::h = h;
 }
 
 void Tile::setTile(int x, int y, int w, int h, int tileType)
 {
+	// Set tile properties
     rect.x = x; rect.y = y; rect.w = w; rect.h = h;
     Tile::x = x; Tile::y = y; Tile::w = w; Tile::h = h;
     Tile::initialX = x; Tile::initialY = y;
@@ -62,12 +64,12 @@ void Tile::setTileType(int type)
 
 void Tile::getCoords()
 {
-    cout << Tile::x << ", " << Tile::y << endl;
+    cout << Tile::x << ", " << Tile::y << endl; // "Tile X, Y"
 }
 
 void Tile::getDim()
 {
-    cout << Tile::w << ", " << Tile::h << endl;
+    cout << Tile::w << ", " << Tile::h << endl; // "Tile W, H"
 }
 
 int Tile::getTileType()
@@ -75,9 +77,6 @@ int Tile::getTileType()
     return tileType;
 }
 
-// May be key to camera issue with SDL_Rect(s) (e.g. tile[i].rect.x = tile[i].getInitialPosX + _camera.x) (if camera is at (32,0) and tile is
-                                                                                                           // initially at (0,0), then offset
-                                                                                                           // by x by +32)
 int Tile::getInitialX()
 {
     return Tile::initialX;
@@ -90,7 +89,8 @@ int Tile::getInitialY()
 
 void Tile::setInitialX(int velocity)
 {
-    Tile::initialX = Tile::x += velocity;
+	// Uses the player's current velocity to move the tile
+    Tile::initialX = Tile::x += velocity; 
 }
 
 void Tile::setInitialY(int velocity)
@@ -98,33 +98,26 @@ void Tile::setInitialY(int velocity)
     Tile::initialY = Tile::y += velocity;
 }
 
-Tile tile[375];
+Tile tile[375]; // Tile object array of 375 tiles, they are 32x32
 
 bool loadMap()
 {
-    // Constructor with file argument opens the file
-
     int tileNumber = 0;
 
-    ifstream Map("map");
+    ifstream Map("map"); // Load the specified Map file, "map"
 
-    if (Map.is_open())
+    if (Map.is_open()) // Read the map if the file was opened successfully
     {
         cout << "Map open ";
 
         int space = 0;
+		// Coordinates to determine where tiles are placed
         int x = 0;
         int y = 0;
 
         char c;
-
-//        Map.seekg(0, Map.end);
-//        int length = Map.tellg();
-//        Map.seekg(0, Map.beg);
-
         while (Map.get(c))
         {
-
             if (c == ' ')
             {
                 _numberOfTiles++;
@@ -141,7 +134,6 @@ bool loadMap()
                 tile[tileNumber].setTile(x*32, y*32, 32, 32, Floor);
                 tileNumber++;
             }
-//            cout << c;
             if (c != ' ')
             {
                 x++;
@@ -152,7 +144,6 @@ bool loadMap()
                 }
             }
         }
-//        cout << _numberOfTiles << endl;
 
         Map.close();
     }
