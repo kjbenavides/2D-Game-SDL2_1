@@ -9,5 +9,5 @@ There are also pushable tiles, with the help of a simple collision system
 Controls:\
 WASD:        Move player\
 Left Mouse:  Place tile\
-Right Mouse: Remove tile
+Right Mouse: Remove tile\
 E:           Reloads the map
