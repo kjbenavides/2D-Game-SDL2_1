@@ -35,10 +35,10 @@ public:
 	*/
     void setTileType(int);
 
-    /*
+    	/*
 		Output the coordinates of the tile to the console
 	*/
-	void getCoords();
+    void getCoords();
 
 	/*
 		Output the width and height of the tile to the console
@@ -95,7 +95,7 @@ extern SDL_Rect renderTileRect;
 /*
 	Reads the game's map file, "map"
 	Creates the map from the file
-	@returns
+	@returns true if successful
 */
 bool loadMap();
 
