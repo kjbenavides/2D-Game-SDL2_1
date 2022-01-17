@@ -121,7 +121,7 @@ void handleTileCollisionX()
                 }
             }
         }
-        // Object/Tile Collision
+        // Object/Tile Collision 
         for (int j = 0; j < _numberOfTiles; j++)
         {
             if (checkTileCollision(object[i].rect, tile[j].rect) == true)
