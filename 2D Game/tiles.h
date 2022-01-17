@@ -95,7 +95,7 @@ extern SDL_Rect renderTileRect;
 /*
 	Reads the game's map file, "map"
 	Creates the map from the file
-	@returns
+	@returns true if successful
 */
 bool loadMap();
 
