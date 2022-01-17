@@ -1,8 +1,6 @@
 #ifndef PRIMARY_H_INCLUDED
 #define PRIMARY_H_INCLUDED
 
-// include order matters; will give "does not name a type" errors
-
 #include "collision.h"
 #include "colors.h"
 #include "control.h"
