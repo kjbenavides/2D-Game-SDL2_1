@@ -12,7 +12,7 @@ using namespace std;
 void pollControls()
 {
 	// If the player moves their mouse,
-	// capture the coordinates
+	// capture the coordinates 
     if (_e.type == SDL_MOUSEMOTION)
     {
         _mouseX = _e.motion.x;
