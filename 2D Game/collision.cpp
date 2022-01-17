@@ -7,7 +7,7 @@
 
 bool checkTileCollision(SDL_Rect a, SDL_Rect b)
 {
-	// Variables for each side of the A and B rects
+	// Variables for each side of the A and B rects 
     int leftA = a.x;
     int rightA = a.x + a.w;
     int topA = a.y;
