@@ -18,32 +18,34 @@ bool checkTileCollision(SDL_Rect a, SDL_Rect b)
     int topB = b.y;
     int bottomB = b.y + b.h;
 
-    if (leftA >= rightB)
+    if (leftA >= rightB) // If the left side of A doesn't intersect the right side of B
     {
         return false;
     }
-    if (rightA <= leftB)
+    if (rightA <= leftB) // If the right side of A doesn't intersect the left side of B
     {
         return false;
     }
-    if (topA >= bottomB)
+    if (topA >= bottomB) // Top A doesn't intersect Bottom B
     {
         return false;
     }
-    if (bottomA <= topB)
+    if (bottomA <= topB) // Bottom A doesn't intersect Top B
     {
         return false;
     }
-    return true;
+    return true; // Collision detected
 }
 
 bool checkMouseCollision(SDL_Rect a)
 {
+	// Variables for each side of rect a
     int leftA = a.x;
     int rightA = a.x + a.w;
     int topA = a.y;
     int bottomA = a.y + a.h;
 
+	// If the mouse lies outside the box
     if (leftA >= _mouseX)
     {
         return false;
@@ -60,8 +62,7 @@ bool checkMouseCollision(SDL_Rect a)
     {
         return false;
     }
-
-    return true;
+    return true; // Mouse in box, collision detected
 }
 
 void handleTileCollisionX()
@@ -69,9 +70,10 @@ void handleTileCollisionX()
     // Player/Tile Collision
     for (int i = 0; i < _numberOfTiles; i++)
     {
+		// If the player collides with a tile
         if (checkTileCollision(Player, tile[i].rect) == true)
         {
-            if (tile[i].getTileType() == Wall)
+            if (tile[i].getTileType() == Wall) // Wall collision
             {
                 playerX += playerVelX;
                 for (int j = 0; j < _numberOfTiles; j++)
@@ -91,28 +93,29 @@ void handleTileCollisionX()
     {
         if (checkTileCollision(object[i].rect, Player) == true)
         {
-            object[i].rect.x += playerVelX;
-            object[i].setInitialX(playerVelX);
+            object[i].rect.x += playerVelX; // Pushes the object away at the same speed as the player
+            object[i].setInitialX(playerVelX); // Sets the object's new X coordinate
         }
-        // Tile/Tile Collision
+        // Object/Object Collision
         for (int ii = 0; ii < _numberOfObjects; ii++)
         {
             if (ii != i)
             {
+				// If they collide
                 if (checkTileCollision(object[i].rect, object[ii].rect) == true)
                 {
-                    playerX += playerVelX;
-                    object[i].setInitialX(-playerVelX);
-                    for (int j = 0; j < _numberOfTiles; j++)
+                    playerX += playerVelX; // Move player
+                    object[i].setInitialX(-playerVelX); // Moves object[i] towards player
+                    for (int j = 0; j < _numberOfTiles; j++) 
                     {
-                        tile[j].rect.x += playerVelX;
+                        tile[j].rect.x += playerVelX; // Move the map with the player
                     }
-                    if (checkTileCollision(object[i].rect, Player) == false)
+                    if (checkTileCollision(object[i].rect, Player) == false) // No collision with player
                     {
-                        object[i].rect.x -= playerVelX;
-                        for (int l = 0; l < _numberOfObjects; l++)
+                        object[i].rect.x -= playerVelX; // Moves object[i] towards player
+                        for (int l = 0; l < _numberOfObjects; l++) 
                         {
-                            object[l].rect.x += playerVelX;
+                            object[l].rect.x += playerVelX; // Move the objects with the player
                         }
                     }
                 }
@@ -123,13 +126,13 @@ void handleTileCollisionX()
         {
             if (checkTileCollision(object[i].rect, tile[j].rect) == true)
             {
-                if (tile[j].getTileType() == Wall)
+                if (tile[j].getTileType() == Wall) // If the object collides with a wall
                 {
-                    object[i].setInitialX(-playerVelX);
-                    playerX += playerVelX;
-                    for (int k = 0; k < _numberOfTiles; k++)
+                    object[i].setInitialX(-playerVelX); // Move the object back towards the player
+                    playerX += playerVelX; // Move the player
+                    for (int k = 0; k < _numberOfTiles; k++) 
                     {
-                        tile[k].rect.x += playerVelX;
+                        tile[k].rect.x += playerVelX; // Move every tile with the player
                     }
                     if (checkTileCollision(object[i].rect, Player) == false)
                     {
@@ -147,6 +150,7 @@ void handleTileCollisionX()
 
 void handleTileCollisionY()
 {
+	// Same as checking for collision along X-axis
     for (int i = 0; i < _numberOfTiles; i++)
     {
         if (checkTileCollision(Player, tile[i].rect) == true)
@@ -171,10 +175,10 @@ void handleTileCollisionY()
     {
         if (checkTileCollision(object[i].rect, Player) == true)
         {
-            object[i].rect.y += playerVelY;
+            object[i].rect.y += playerVelY; 
             object[i].setInitialY(playerVelY);
         }
-        // Tile/Tile Collision
+        // Object/Object Collision
         for (int ii = 0; ii < _numberOfObjects; ii++)
         {
             if (ii != i)
@@ -227,12 +231,13 @@ void handleTileCollisionY()
 
 void handleMouseCollision()
 {
-    if (_leftClick)
+    if (_leftClick) // Player holding left click
     {
         for (int i = 0; i < _numberOfTiles; i++)
         {
             if (checkMouseCollision(tile[i].rect) == true)
             {
+				// Find the tile colliding with the mouse and change it into a Wall
                 tile[i].setTileType(Wall);
             }
         }
