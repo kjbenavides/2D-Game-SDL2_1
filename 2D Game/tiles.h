@@ -35,10 +35,10 @@ public:
 	*/
     void setTileType(int);
 
-    /*
+    	/*
 		Output the coordinates of the tile to the console
 	*/
-	void getCoords();
+    void getCoords();
 
 	/*
 		Output the width and height of the tile to the console
