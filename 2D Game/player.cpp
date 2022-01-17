@@ -24,7 +24,7 @@ void movePlayerX()
 {
     playerX -= playerVelX; // Move the player along x-axis
     _camera.x = playerX - _windowWidth/2 + Player.w/2; // Update camera X coord
-	// Move tiles and objects relative to the camera and their starting position
+    // Move tiles and objects relative to the camera and their starting position
     for (int i = 0; i < _numberOfTiles; i++)
     {
         tile[i].rect.x = tile[i].getInitialX() + _camera.x;
